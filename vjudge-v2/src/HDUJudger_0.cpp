@@ -29,7 +29,7 @@ void HDUJudger::initHandShake(){
 void HDUJudger::login() {
   prepareCurl();
   curl_easy_setopt(curl, CURLOPT_URL,
-                   "http://acm.split.hdu.edu.cn/userloginex.php?action=login");
+                   "http://acm.hdu.edu.cn/userloginex.php?action=login");
   string post = (string) "username=" + info->GetUsername() + "&userpass=" +
       info->GetPassword() + "&login=Sign+In";
   curl_easy_setopt(curl, CURLOPT_POSTFIELDS, post.c_str());
@@ -61,7 +61,7 @@ int HDUJudger::submit(Bott * bott) {
 
   prepareCurl();
   curl_easy_setopt(curl, CURLOPT_URL,
-                   "http://acm.split.hdu.edu.cn/submit.php?action=submit");
+                   "http://acm.hdu.edu.cn/submit.php?action=submit");
   string post = (string) "check=0&problemid=" + bott->Getvid() +
       "&language=" + convertLanguage(bott->Getlanguage()) +
       "&usercode=" + escapeURL(converted_code);
@@ -100,7 +100,7 @@ Bott * HDUJudger::getStatus(Bott * bott) {
     prepareCurl();
     curl_easy_setopt(
         curl, CURLOPT_URL,
-        ((string) "http://acm.split.hdu.edu.cn/status.php?first=&pid=" +
+        ((string) "http://acm.hdu.edu.cn/status.php?first=&pid=" +
             bott->Getvid() + "&user=" + info->GetUsername() +
             "&lang=&status=0").c_str());
     performCurl();
@@ -179,7 +179,7 @@ string HDUJudger::getCEinfo(Bott * bott) {
   prepareCurl();
   curl_easy_setopt(
       curl, CURLOPT_URL,
-      ((string) "http://acm.split.hdu.edu.cn/viewerror.php?rid=" +
+      ((string) "http://acm.hdu.edu.cn/viewerror.php?rid=" +
           bott->Getremote_runid()).c_str());
   performCurl();
 

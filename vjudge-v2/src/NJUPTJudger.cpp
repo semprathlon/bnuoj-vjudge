@@ -52,17 +52,20 @@ int NJUPTJudger::submit(Bott * bott) {
   string post = (string) "problemId=" + bott->Getvid() +
       "&language=" + convertLanguage(bott->Getlanguage()) +
       "&code=" + escapeURL(bott->Getsrc());
+//throw Exception(post.c_str());
   curl_easy_setopt(curl, CURLOPT_POSTFIELDS, post.c_str());
 
   try {
     performCurl();
   } catch (Exception & e) {
-    return SUBMIT_OTHER_ERROR;
+//throw Exception("curl fail");
+    //return SUBMIT_OTHER_ERROR;
   }
 
   string html = loadAllFromFile(tmpfilename);
   if (html.find("<div style=\"color:red;\"><UL><LI>") != string::npos)
-    return SUBMIT_OTHER_ERROR;
+    //return SUBMIT_OTHER_ERROR;
+throw Exception("unknown response:"+html);
   return SUBMIT_NORMAL;
 }
 

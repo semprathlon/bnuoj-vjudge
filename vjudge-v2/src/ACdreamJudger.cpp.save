@@ -90,11 +90,12 @@ Bott * ACdreamJudger::getStatus(Bott * bott) {
     // get first row
     if (!RE2::PartialMatch(html, "(?s)<tbody>(<tr.*?</tr>)", &status)) {
       throw Exception("Failed to get status row.");
+
     }
 
     // get result
     if (!RE2::PartialMatch(status,
-                           "(?s)<td class=\".*?\" rid=\"([0-9]*)\".*?>(.*?)</td>",
+                           "(?s)<td rid=\"([0-9]*)\".*?>(.*?)</td>",
                            &runid, &result)) {
       throw Exception((string)"Failed to get current result."+status);
     }

@@ -19,7 +19,7 @@ max_wait_time           =   120
 
 # WARNING: identifier should be unique, it'll be used to store cookies and log
 [[PKU1]]
-username                =   jnuacm
+username                =   jnuacmvj
 password                =   jiangnandaxue
 
 
@@ -56,7 +56,7 @@ password                =   password
 max_wait_time           =   120
 
 [[HDU1]]
-username                =   jnuacm
+username                =   jnuacmvj
 password                =   jiangnandaxue
 
 [ZJU]
@@ -115,3 +115,12 @@ max_wait_time           =   120
 [[SPOJ1]]
 username                =   crccw
 password                =   Sylvie
+
+[UVALive]
+# max wait for a run, in seconds
+max_wait_time           =   120
+
+[[UVALive1]]
+username                =   bnuvjudge
+password                =   4rfv$RFV#
+
